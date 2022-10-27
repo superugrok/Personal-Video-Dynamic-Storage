@@ -1,0 +1,24 @@
+/* Buttons */
+.button {
+  cursor: pointer;
+  padding: 1.3% 4%;
+  border-radius: 0.3vw;
+}
+.button_violet {
+  background-color: #7f4ee7;
+  color: #fff;
+  border: unset;
+}
+.button_violet:hover {
+  background-color: #7742e9;
+}
+
+/* Loading */
+.loading {
+  background-image: url("../assets/load.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+}

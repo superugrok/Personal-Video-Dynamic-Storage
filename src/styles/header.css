@@ -1,0 +1,13 @@
+.header_container {
+  height: 6vh;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_logo {
+  background-image: url("../assets/logo.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
