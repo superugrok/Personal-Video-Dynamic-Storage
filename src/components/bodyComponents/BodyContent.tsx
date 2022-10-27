@@ -37,7 +37,7 @@ export const BodyContent = () => {
   const [filteredItems, setFilteredItems] = React.useState<
     JSX.Element[] | null
   >(null);
-  const [search, setSearch] = React.useContext(Context);
+  const [context] = React.useContext(Context);
 
   React.useEffect(() => {
     getItems();
@@ -48,11 +48,11 @@ export const BodyContent = () => {
       const filteredItems = items.filter((item) =>
         item.props.children[0].props.children
           .toLowerCase()
-          .match(search.toLowerCase())
+          .match(context.search.toLowerCase())
       );
       setFilteredItems(filteredItems);
     }
-  }, [search]);
+  }, [context.search]);
 
   const bulkRequest: Promise<IItem[]> = new Promise((resolve) => {
     setTimeout(() => resolve(objects), 2000);

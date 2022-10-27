@@ -9,12 +9,19 @@ export const BodyHead = () => {
     <div className="body_head">
       <h4 className="body_hover">Library</h4>
       <input
-        onChange={(event) => setContext(event.target.value)}
+        onChange={(event) =>
+          setContext({ ...context, search: event.target.value })
+        }
         type="text"
         className="body_search"
         placeholder="Search Item..."
       />
-      <button className="button button_violet">Upload</button>
+      <button
+        onClick={() => setContext({ ...context, upload: true })}
+        className="button button_violet button_upload"
+      >
+        Upload
+      </button>
     </div>
   );
 };

@@ -3,15 +3,21 @@ import "@Styles/body.css";
 import { BodyHead } from "./bodyComponents/BodyHead";
 import { BodyContent } from "./bodyComponents/BodyContent";
 import { Context } from "./bodyComponents/Context";
+import { IContext } from "@Types/Body";
+import { Upload } from "./bodyComponents/Upload";
 
 export const Body = () => {
-  // A search value
-  const [search, setSearch] = React.useState<string | null>(null);
+  // A context
+  const [context, setContext] = React.useState<IContext | null>({
+    search: null,
+    upload: false,
+  });
   return (
     <div className="body_container">
-      <Context.Provider value={[search, setSearch]}>
+      <Context.Provider value={[context, setContext]}>
         <BodyHead />
         <BodyContent />
+        <Upload />
       </Context.Provider>
     </div>
   );

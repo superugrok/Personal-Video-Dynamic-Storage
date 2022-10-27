@@ -25,6 +25,7 @@
   border: 1px solid #a9b5db;
   color: #a9b5db;
 }
+
 input[type="text"] {
   color: #a9b5db;
   font-family: "Nunito", sans-serif;
@@ -33,11 +34,6 @@ input[type="text"] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-  background-image: url("../assets/search.svg");
-  background-repeat: no-repeat;
-  background-position: 1.5%;
-  background-size: 5%;
-  padding-left: 3%;
 }
 input[type="text"]::placeholder {
   color: #a9b5db;
@@ -45,6 +41,20 @@ input[type="text"]::placeholder {
 }
 input[type="text"]:focus {
   border: 1px solid #5470cc;
+}
+.body_head input[type="text"] {
+  background-image: url("../assets/search.svg");
+  background-repeat: no-repeat;
+  background-position: 1.5%;
+  background-size: 5%;
+  padding-left: 3%;
+}
+.modal_inner_content input[type="text"] {
+  width: 70%;
+  padding: 1%;
+  border-radius: 0.3vw;
+  border: 1px solid #a9b5db;
+  color: #a9b5db;
 }
 
 /* Content styles */

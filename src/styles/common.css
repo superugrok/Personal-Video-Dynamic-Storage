@@ -1,21 +1,37 @@
 /* Buttons */
 .button {
   cursor: pointer;
-  padding: 1.3% 4%;
   border-radius: 0.3vw;
+  border: 1px solid #3e4867;
   font-weight: bold;
 }
 .button_violet {
   background-color: #7f4ee7;
   color: #fff;
   border: unset;
+}
+.button_violet:hover {
+  background-color: #7742e9;
+}
+.button_grey {
+  color: black;
+  background-color: transparent;
+}
+.button_grey:hover {
+  background-color: #e9edfa;
+}
+.button_upload {
+  padding: 1.3% 4%;
   background-image: url("../assets/upload.svg");
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: 8%;
 }
-.button_violet:hover {
-  background-color: #7742e9;
+.button_next {
+  padding: 4% 6%;
+}
+.button_back {
+  padding: 4% 6%;
 }
 
 /* Loading */
