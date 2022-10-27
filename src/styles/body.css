@@ -33,6 +33,11 @@ input[type="text"] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  background-image: url("../assets/search.svg");
+  background-repeat: no-repeat;
+  background-position: 1.5%;
+  background-size: 5%;
+  padding-left: 3%;
 }
 input[type="text"]::placeholder {
   color: #a9b5db;

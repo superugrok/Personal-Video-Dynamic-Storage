@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div className="header_container">
       <div className="header_logo"></div>
-      <div>Right</div>
+      <div className="header_profile"></div>
     </div>
   );
 };

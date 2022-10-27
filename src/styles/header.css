@@ -4,10 +4,28 @@
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .header_logo {
   background-image: url("../assets/logo.svg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: contain;
+  width: 10%;
+  height: 100%;
+  background-position: center;
+  margin-left: 1.5%;
+  scale: 0.8;
+}
+
+.header_profile {
+  cursor: pointer;
+  background-image: url("../assets/default_avatar.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  width: 4%;
+  border-left: 2px solid #eff3fa;
+  scale: 1.3;
 }

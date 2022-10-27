@@ -1,8 +1,6 @@
 import path from "path";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import ESLintPlugin from "eslint-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 const config: Configuration = {
@@ -30,33 +28,30 @@ const config: Configuration = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           "style-loader",
           "css-loader",
           {
-            loader: "resolve-url-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
             loader: "sass-loader",
             options: {
-              implementation: require.resolve("sass"),
+              implementation: require("sass"),
             },
           },
         ],
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.(jpg|png|svg|gif|mp3)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[hash][ext][query]",
+        },
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: "file-loader",
-        options: {
-          name: "[name].[ext]",
+        test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[hash][ext][query]",
         },
       },
     ],
@@ -73,13 +68,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-    }),
-    new ESLintPlugin({
-      extensions: ["js", "jsx", "ts", "tsx"],
+      template: "public/index.html",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css",

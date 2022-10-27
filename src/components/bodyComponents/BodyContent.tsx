@@ -1,7 +1,7 @@
 import React from "react";
 import "@Styles/body.css";
 import { IItem } from "@Types/BodyContent";
-import { Loading } from "@Components/common/Loading";
+import { Loading } from "@Components/commonComponents/Loading";
 import { Context } from "./Context";
 
 // Temporary objects array
@@ -34,8 +34,25 @@ const objects: IItem[] = [
 
 export const BodyContent = () => {
   const [items, setItems] = React.useState<JSX.Element[] | null>(null);
-  const [displayedItems, setDisplayedItems] = React.useState<any>(null);
+  const [filteredItems, setFilteredItems] = React.useState<
+    JSX.Element[] | null
+  >(null);
   const [search, setSearch] = React.useContext(Context);
+
+  React.useEffect(() => {
+    getItems();
+  }, []);
+
+  React.useEffect(() => {
+    if (items) {
+      const filteredItems = items.filter((item) =>
+        item.props.children[0].props.children
+          .toLowerCase()
+          .match(search.toLowerCase())
+      );
+      setFilteredItems(filteredItems);
+    }
+  }, [search]);
 
   const bulkRequest: Promise<IItem[]> = new Promise((resolve) => {
     setTimeout(() => resolve(objects), 2000);
@@ -43,12 +60,13 @@ export const BodyContent = () => {
 
   const getItems = async () => {
     await bulkRequest.then((data) => {
-      const elements = data.map((itemData, i) => (
+      const items = data.map((itemData, i) => (
         <div
           className="content_item"
           key={i}
           onClick={() => window.open(itemData.url)}
         >
+          <div style={{ display: "none" }}>{itemData.name}</div>
           <div className="content_item_top"></div>
           <div className="content_item_bot">
             <div className="body_head">
@@ -63,27 +81,11 @@ export const BodyContent = () => {
           </div>
         </div>
       ));
-      setItems(elements);
+      setItems(items);
     });
   };
 
-  React.useEffect(() => {
-    getItems();
-  }, []);
-
-  React.useEffect(() => {
-    if (items) {
-      console.log(items[0]);
-      const filteredItems = items.filter((item) =>
-        item.props.children[1].props.children[0].props.children
-          .toLowerCase()
-          .match(search.toLowerCase())
-      );
-      setDisplayedItems(filteredItems);
-    }
-  }, [search]);
-
   return (
-    <div className="body_content">{displayedItems || items || <Loading />}</div>
+    <div className="body_content">{filteredItems || items || <Loading />}</div>
   );
 };
