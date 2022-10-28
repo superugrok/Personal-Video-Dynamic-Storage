@@ -50,6 +50,7 @@ export const BodyContent = () => {
           <div className="content_item_bot">
             <div className="body_head">
               <h4 className="content_item_desc">{itemData.name}</h4>
+              <div className="content_item_avatar"></div>
             </div>
             <div className="body_head">
               <p className="content_item_bot_line content_item_owner">

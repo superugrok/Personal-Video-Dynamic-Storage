@@ -107,12 +107,22 @@ input[type="text"]:focus {
 .content_item_desc {
   font-size: 1.1rem;
   font-weight: bold;
+  width: 100%;
 }
 .content_item_bot_line {
   margin-top: 5%;
 }
 .content_item_owner {
   color: #7c8dc1;
+}
+.content_item_avatar {
+  background-image: urL("../assets/custom_avatar.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 3.3vw;
+  height: 2.6vh;
+  background-position: center;
+  margin-left: 50%;
 }
 
 /* Item top content - WIP! */
@@ -140,14 +150,22 @@ input[type="text"]:focus {
 }
 
 /* Adaptation for 1920px < width */
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1850px) {
   .body_container {
-    width: 75%;
+    width: 76%;
   }
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1600px) {
+  .body_container {
+    width: 77%;
+  }
+}
+@media screen and (max-width: 1230px) {
   .body_container {
     width: 90%;
+  }
+  .content_item_avatar {
+    display: none;
   }
 }
 @media screen and (max-width: 1000px) {
