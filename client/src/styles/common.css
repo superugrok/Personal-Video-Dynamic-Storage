@@ -44,3 +44,9 @@
   width: 10vw;
   height: 10vw;
 }
+
+@media screen and (max-width: 800px) {
+  .button_upload {
+    background-image: unset;
+  }
+}
