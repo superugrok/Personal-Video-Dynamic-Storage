@@ -1,11 +1,11 @@
 /* Container styles */
 .body_container {
   margin: 0 auto;
-  margin-top: 3.5%;
+  margin-top: 3%;
   background-color: #fff;
   border-radius: 0.5vw;
   width: 55%;
-  height: 70vh;
+  height: 75vh;
   padding: 2%;
 }
 
@@ -61,14 +61,17 @@ input[type="text"]:focus {
 .body_content {
   margin-top: 5%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .content_item {
   cursor: pointer;
   width: 22%;
+  min-width: 22%;
   height: 20vh;
   border-radius: 0.3vw;
   border: 1px solid #a9b5db;
+  margin-left: 2.5%;
+  margin-top: 1.5%;
 }
 .content_item_top {
   height: 65%;
@@ -90,4 +93,28 @@ input[type="text"]:focus {
 }
 .content_item_owner {
   color: #7c8dc1;
+}
+
+/* Item top content - WIP! */
+.content_top_menu {
+  display: none;
+  z-index: 1;
+  background-color: grey;
+  width: 100%;
+  height: 20%;
+  text-align: right;
+  transition: 0.7s;
+}
+.content_top_menu:hover {
+  display: block;
+}
+.content_top_menu_delete {
+  background-image: url("../assets/delete.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.content_top_menu_copy {
+  background-image: url("../assets/copy_link.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
