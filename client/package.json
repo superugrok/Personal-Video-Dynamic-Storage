@@ -1,11 +1,8 @@
 {
-  "name": "my-app",
-  "version": "0.0.1",
+  "name": "Aligned Test Assigment",
+  "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.20.1",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "mongoose": "^6.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -40,7 +37,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "start": "webpack serve --config webpack.dev.config.ts",
+    "client": "webpack serve --config webpack.dev.config.ts",
+    "server": "node ../server/server.js",
     "build": "webpack --config webpack.prod.config.ts"
   }
 }
