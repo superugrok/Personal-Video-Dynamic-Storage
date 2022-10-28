@@ -18,8 +18,8 @@
   padding: 20px;
   border: 1px solid #888;
   border-radius: 0.3vw;
-  width: 20vw;
-  height: 30%;
+  width: 25vw;
+  height: 32%;
 }
 
 .close {
@@ -58,25 +58,28 @@
 /* Adaptation for 1920px < width */
 @media screen and (max-width: 1600px) {
   .modal-content {
-    width: 25vw;
-    height: 35%;
+    width: 27vw;
+    height: 33%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .modal-content {
+    width: 35vw;
   }
 }
 @media screen and (max-width: 1100px) {
   .modal-content {
-    width: 28vw;
-    height: 38%;
+    width: 50vw;
   }
 }
 @media screen and (max-width: 1000px) {
   .modal-content {
-    width: 35vw;
-    height: 45%;
+    width: 60vw;
+    height: 40%;
   }
 }
 @media screen and (max-width: 800px) {
   .modal-content {
-    width: 40vw;
-    height: 50%;
+    width: 80vw;
   }
 }
