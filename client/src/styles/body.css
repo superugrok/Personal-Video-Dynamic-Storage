@@ -1,12 +1,32 @@
 /* Container styles */
 .body_container {
+  overflow-y: scroll;
   margin: 0 auto;
   margin-top: 3%;
   background-color: #fff;
   border-radius: 0.5vw;
   width: 55%;
-  height: 75vh;
+  height: 72vh;
   padding: 2%;
+}
+
+/* Scroll customization */
+.body_container::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+.body_container::-webkit-scrollbar {
+  width: 2px;
+}
+.body_container::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #f0f2f5;
+  display: none;
+}
+.body_container:hover::-webkit-scrollbar-thumb {
+  border-radius: 2vw;
+  background: #4980d8;
+  display: block;
+  background-repeat: repeat;
 }
 
 /* Head styles */
@@ -59,7 +79,7 @@ input[type="text"]:focus {
 
 /* Content styles */
 .body_content {
-  margin-top: 5%;
+  margin-top: 1%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -117,4 +137,34 @@ input[type="text"]:focus {
   background-image: url("../assets/copy_link.svg");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+/* Adaptation for 1920px < width */
+@media screen and (max-width: 1600px) {
+  .body_container {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .body_container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .body_container {
+    height: 77vh;
+  }
+  .content_item {
+    min-width: 30%;
+    height: 25vh;
+  }
+}
+@media screen and (max-width: 800px) {
+  .content_item {
+    min-width: 46%;
+    height: 27vh;
+  }
+  .body_container {
+    height: 80vh;
+  }
 }
