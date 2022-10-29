@@ -5,6 +5,7 @@ import { Loading } from "@Components/commonComponents/Loading";
 import { Context } from "./Context";
 import { selectAll } from "@App/utils/dbActions";
 import { ItemMenu } from "./ItemMenu";
+import { Upload } from "./Upload";
 
 export const BodyContent = () => {
   const [items, setItems] = React.useState<JSX.Element[] | null>(null);
@@ -69,6 +70,9 @@ export const BodyContent = () => {
   };
 
   return (
-    <div className="body_content">{filteredItems || items || <Loading />}</div>
+    <div className="body_content">
+      {filteredItems || items || <Loading />}
+      <Upload />
+    </div>
   );
 };

@@ -4,7 +4,6 @@ import { BodyHead } from "./bodyComponents/BodyHead";
 import { BodyContent } from "./bodyComponents/BodyContent";
 import { Context } from "./bodyComponents/Context";
 import { IContext } from "@Types/Body";
-import { Upload } from "./bodyComponents/Upload";
 
 export const Body = () => {
   // A context
@@ -18,7 +17,6 @@ export const Body = () => {
       <Context.Provider value={[context, setContext]}>
         <BodyHead />
         <BodyContent />
-        <Upload />
       </Context.Provider>
     </div>
   );
