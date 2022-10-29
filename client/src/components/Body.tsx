@@ -11,6 +11,7 @@ export const Body = () => {
   const [context, setContext] = React.useState<IContext | null>({
     search: null,
     upload: false,
+    newData: null,
   });
   return (
     <div className="body_container">

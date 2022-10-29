@@ -15,13 +15,6 @@ export const Upload = () => {
   const nameRef = React.useRef(null);
   const urlRef = React.useRef(null);
 
-  // Close modal when clicking outside of window.
-  window.onclick = (event) => {
-    if (event.target == modalRef.current) {
-      setContext({ ...context, upload: false });
-    }
-  };
-
   // URL Regexp pattern
   const urlPattern = new RegExp(
     "^(https?:\\/\\/)?" + // validate protocol
@@ -50,6 +43,8 @@ export const Upload = () => {
   };
 
   const modalProps: IModal = {
+    modalType: "upload",
+    display: context.upload,
     context: {
       context,
       setContext,
@@ -62,7 +57,6 @@ export const Upload = () => {
   return (
     <Modal {...modalProps}>
       <div>
-        <h4 className="body_hover">Upload</h4>
         <p className="modal_p">URL</p>
         <Input
           type="text"
@@ -75,18 +69,18 @@ export const Upload = () => {
           type="text"
           placeholder="e.g. AMCE demo"
           inputRef={nameRef}
-          maxLength={10}
+          maxLength={11}
         />
         <div className="modal_buttons_area">
           <Button
             onClick={() => setContext({ ...context, upload: false })}
-            className="button button_grey button_back"
+            className="button_grey button_back"
           >
             {"<"} Back
           </Button>
           <Button
             onClick={() => saveItem()}
-            className="button button_violet button_next"
+            className="button_violet button_next"
           >
             Save {">"}
           </Button>

@@ -12,5 +12,8 @@ module.exports = (app) => {
   // Get all items
   router.post("/selectAll", (req, res) => actions.selectAll(req, res));
 
+  // Edit item
+  router.post("/edit", (req, res) => actions.edit(req, res));
+
   app.use("/", router);
 };

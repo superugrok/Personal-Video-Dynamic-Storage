@@ -1,0 +1,11 @@
+{
+  "name": "Aligned Test Assigment",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "node ./server/server.js",
+    "build": "cd client && webpack --config webpack.prod.config.ts"
+  }
+}

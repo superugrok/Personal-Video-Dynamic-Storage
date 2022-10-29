@@ -2,6 +2,8 @@ import { IContext } from "@Types/Body";
 import { ReactElement } from "react";
 
 export interface IModal {
+  modalType: string;
+  display: boolean;
   context: {
     setContext: (newContext: IContext) => void;
     context: IContext;

@@ -10,7 +10,12 @@ export const selectAll = async () => {
   return items;
 };
 
-export const addItem = async (name, url, owner, type) => {
+export const addItem = async (
+  name: string,
+  url: string,
+  owner: string,
+  type: string
+) => {
   await axios({
     method: "post",
     url: `${path}create`,
@@ -23,7 +28,7 @@ export const addItem = async (name, url, owner, type) => {
   });
 };
 
-export const removeItem = async (_id) => {
+export const removeItem = async (_id: string) => {
   await axios({
     method: "post",
     url: `${path}delete`,
@@ -31,5 +36,15 @@ export const removeItem = async (_id) => {
       _id,
     },
   });
-  await selectAll();
+};
+
+export const editItem = async (_id: string, newName: string) => {
+  await axios({
+    method: "post",
+    url: `${path}edit`,
+    params: {
+      _id,
+      newName,
+    },
+  });
 };
