@@ -1,9 +1,13 @@
 import React from "react";
 import { Context } from "./Context";
-import "@Styles/upload.css";
+import "@Styles/modal.css";
 import "@Styles/body.css";
 import "@Styles/common.css";
 import { addItem, selectAll } from "@App/utils/dbActions";
+import { Modal } from "@Components/commonComponents/Modal";
+import { IModal } from "@Types/Modal";
+import { Input } from "@Components/commonComponents/Input";
+import { Button } from "@Components/commonComponents/Button";
 
 export const Upload = () => {
   const [context, setContext] = React.useContext(Context);
@@ -45,45 +49,49 @@ export const Upload = () => {
     else alert("You have to fill all possible inputs!");
   };
 
+  const modalProps: IModal = {
+    context: {
+      context,
+      setContext,
+    },
+    refs: {
+      modalRef,
+    },
+  };
+
   return (
-    <div
-      ref={modalRef}
-      className="modal"
-      style={{ display: context.upload ? "block" : "none" }}
-    >
-      <div className="modal-content">
-        <span
-          className="close"
-          onClick={() => setContext({ ...context, upload: false })}
-        >
-          &times;
-        </span>
-        <div className="modal_inner_content">
-          <h4 className="body_hover">Upload</h4>
-          <p className="modal_p">URL</p>
-          <input
-            type="text"
-            placeholder="e.g. docs.google.com/presentation"
-            ref={urlRef}
-          />
-          <p className="modal_p">Name</p>
-          <input type="text" placeholder="e.g AMCE demo deck" ref={nameRef} />
-          <div className="modal_buttons_area">
-            <button
-              onClick={() => setContext({ ...context, upload: false })}
-              className="button button_grey button_back"
-            >
-              {"<"} Back
-            </button>
-            <button
-              onClick={() => saveItem()}
-              className="button button_violet button_next"
-            >
-              Save {">"}
-            </button>
-          </div>
+    <Modal {...modalProps}>
+      <div>
+        <h4 className="body_hover">Upload</h4>
+        <p className="modal_p">URL</p>
+        <Input
+          type="text"
+          placeholder="e.g. docs.google.com/presentation"
+          inputRef={urlRef}
+          maxLength={20}
+        />
+        <p className="modal_p">Name</p>
+        <Input
+          type="text"
+          placeholder="e.g. AMCE demo"
+          inputRef={nameRef}
+          maxLength={10}
+        />
+        <div className="modal_buttons_area">
+          <Button
+            onClick={() => setContext({ ...context, upload: false })}
+            className="button button_grey button_back"
+          >
+            {"<"} Back
+          </Button>
+          <Button
+            onClick={() => saveItem()}
+            className="button button_violet button_next"
+          >
+            Save {">"}
+          </Button>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 };

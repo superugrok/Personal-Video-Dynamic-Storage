@@ -34,7 +34,7 @@ export const BodyContent = () => {
   // Get items from DB and build components.
   const getItems = async () => {
     await selectAll().then((data: any) => {
-      const items = data.data.map((itemData) => (
+      const items = data.data.map((itemData: IItem) => (
         <div
           className="content_item"
           key={itemData._id}

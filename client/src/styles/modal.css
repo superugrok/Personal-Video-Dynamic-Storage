@@ -70,16 +70,18 @@
 @media screen and (max-width: 1100px) {
   .modal-content {
     width: 50vw;
+    height: 40%;
   }
 }
 @media screen and (max-width: 1000px) {
   .modal-content {
     width: 60vw;
-    height: 40%;
+    height: 43%;
   }
 }
 @media screen and (max-width: 800px) {
   .modal-content {
     width: 80vw;
+    height: 45%;
   }
 }
