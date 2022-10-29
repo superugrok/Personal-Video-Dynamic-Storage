@@ -62,7 +62,7 @@ export const Upload = () => {
           type="text"
           placeholder="e.g. docs.google.com/presentation"
           inputRef={urlRef}
-          maxLength={20}
+          maxLength={200}
         />
         <p className="modal_p">Name</p>
         <Input

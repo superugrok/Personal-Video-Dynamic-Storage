@@ -6,6 +6,7 @@ import { Context } from "./Context";
 import { selectAll } from "@App/utils/dbActions";
 import { ItemMenu } from "./ItemMenu";
 import { Upload } from "./Upload";
+import ReactPlayer from "react-player";
 
 export const BodyContent = () => {
   const [items, setItems] = React.useState<JSX.Element[] | null>(null);
@@ -39,6 +40,11 @@ export const BodyContent = () => {
         <div style={{ display: "none" }}>{itemData.name}</div>
         <div className="content_item_top">
           <ItemMenu itemData={itemData} />
+          <div className="content_item_preview">
+            {itemData.type == "Youtube" ? (
+              <ReactPlayer url={itemData.url} width={"100%"} height={"100%"} />
+            ) : null}
+          </div>
         </div>
         <div
           className="content_item_bot"
