@@ -18,7 +18,6 @@ export const ItemMenu = ({ itemData }: IItemMenu) => {
         .then((data) => {
           setContext({
             ...context,
-            edit: false,
             newData: data,
           });
         });
@@ -34,7 +33,6 @@ export const ItemMenu = ({ itemData }: IItemMenu) => {
         selectAll().then((data) =>
           setContext({
             ...context,
-            edit: false,
             newData: data,
           })
         )
