@@ -8,9 +8,11 @@ export const Input = ({
   onChange,
   className,
   inputRef,
+  onKeyDown,
 }: IInput) => {
   return (
     <input
+      onKeyDown={(event) => onKeyDown && onKeyDown(event)}
       ref={inputRef}
       type={type || "text"}
       placeholder={placeholder}

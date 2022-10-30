@@ -31,22 +31,53 @@ export const Upload = () => {
 
   // Save item function
   const saveItem = () => {
-    if (nameRef.current.value && urlPattern.test(urlRef.current.value)) {
-      nameRef.current.style.borderColor = "#a9b5db";
-      urlRef.current.style.borderColor = "#a9b5db";
-      const urlValue: string = urlRef.current.value;
+    const urlValue = urlRef.current.value;
+    const nameValue = nameRef.current.value;
+    if (
+      nameValue.length > 2 &&
+      nameValue.length < 12 &&
+      urlPattern.test(urlValue)
+    ) {
       const itemType = urlValue.toLowerCase().match("youtube.com")
         ? "Youtube"
         : "Link";
-      addItem(nameRef.current.value, urlRef.current.value, userName, itemType)
+      addItem(nameValue, urlValue, userName, itemType)
         .then(() => selectAll())
         .then((data) => {
           setContext({ ...context, upload: false, newData: data });
         });
-    } else if (!urlPattern.test(urlRef.current.value))
-      urlRef.current.style.borderColor = "red";
-    else if (!nameRef.current.value) nameRef.current.style.borderColor = "red";
-    else alert("You have to fill all possible inputs!");
+    } else alert("You have to make sure that you enter a valid data!");
+  };
+
+  // Handle enter press
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      saveItem();
+    }
+  };
+
+  // Inputs validate funcs
+  const validateInput = (type: string) => {
+    switch (type) {
+      case "url":
+        {
+          const inputStyle = urlRef.current.style;
+          const inputValue = urlRef.current.value;
+          !urlPattern.test(inputValue)
+            ? (inputStyle.borderColor = "red")
+            : (inputStyle.borderColor = "green");
+        }
+        break;
+      case "name":
+        {
+          const inputStyle = nameRef.current.style;
+          const inputValue = nameRef.current.value;
+          inputValue.length < 2 || inputValue.length > 11
+            ? (inputStyle.borderColor = "red")
+            : (inputStyle.borderColor = "green");
+        }
+        break;
+    }
   };
 
   const modalProps: IModal = {
@@ -66,6 +97,8 @@ export const Upload = () => {
       <div>
         <p className="modal_p">URL</p>
         <Input
+          onChange={() => validateInput("url")}
+          onKeyDown={(event) => handleKeyDown(event)}
           type="text"
           placeholder="e.g. docs.google.com/presentation"
           inputRef={urlRef}
@@ -73,6 +106,8 @@ export const Upload = () => {
         />
         <p className="modal_p">Name</p>
         <Input
+          onChange={() => validateInput("name")}
+          onKeyDown={(event) => handleKeyDown(event)}
           type="text"
           placeholder="e.g. AMCE demo"
           inputRef={nameRef}
