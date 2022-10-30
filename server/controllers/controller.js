@@ -9,13 +9,13 @@ exports.create = (req, res) => {
   item.owner = itemData.owner;
   item.url = itemData.url;
   item.type = itemData.type;
-  item.save().then(() => res.send("Item created successfully!"));
+  item.save().then(() => res.send("Item create action"));
 };
 
 // Delete specified item
 exports.delete = (req, res) => {
   const itemId = req.query._id;
-  Model.findByIdAndRemove(itemId, () => res.send("Item deleted successfully!"));
+  Model.findByIdAndRemove(itemId, () => res.send("Item delete action"));
 };
 
 // Get all items
@@ -28,6 +28,6 @@ exports.edit = (req, res) => {
   const _id = req.query._id;
   const newName = req.query.newName;
   Model.updateOne({ _id }, { name: newName }).then(() =>
-    res.send("Item edit successfully!")
+    res.send("Item edit action")
   );
 };
