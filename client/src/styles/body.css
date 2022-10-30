@@ -109,8 +109,9 @@ input[type="text"]:focus {
   width: 100%;
   height: 100%;
   background-image: url("../assets/link.svg");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .content_item_top {
   height: 65%;
@@ -177,6 +178,19 @@ input[type="text"]:focus {
 }
 .content_top_menu_edit {
   background-image: url("../assets/edit.svg");
+}
+
+/* Content item copy link */
+.content_top_menu_copied {
+  position: absolute;
+  opacity: 0;
+  top: -100%;
+  border: 1px solid green;
+  border-radius: 0.3vw;
+  padding: 4%;
+  background: lightgreen;
+  color: rgb(255, 255, 255);
+  transition: 0.5s ease;
 }
 
 /* Adaptation for 1920px < width */

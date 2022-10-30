@@ -9,6 +9,7 @@ export interface IItemMenu {
 
 export const ItemMenu = ({ itemData }: IItemMenu) => {
   const [context, setContext] = React.useContext(Context);
+  const copyRef = React.useRef(null);
 
   // Save item function
   const saveItem = (newName: string) => {
@@ -46,11 +47,15 @@ export const ItemMenu = ({ itemData }: IItemMenu) => {
 
   const copyItem = () => {
     navigator.clipboard.writeText(itemData.url);
-    window.alert("Link is copied into your clipboard");
+    copyRef.current.style.opacity = "1";
+    setTimeout(() => (copyRef.current.style.opacity = "0"), 1500);
   };
 
   return (
     <div className="content_top_menu">
+      <div className="content_top_menu_copied" ref={copyRef}>
+        Copied
+      </div>
       <div
         title="Delete item"
         onClick={() => deleteItem()}
