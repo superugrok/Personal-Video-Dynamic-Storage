@@ -7,7 +7,7 @@ import { selectAll } from "@App/utils/dbActions";
 import { ItemMenu } from "./ItemMenu";
 import { Upload } from "./Upload";
 import ReactPlayer from "react-player";
-import LinkImage from "@Assets/link.svg";
+import { NoContent } from "@Components/commonComponents/NoContent";
 
 export const BodyContent = () => {
   const [items, setItems] = React.useState<JSX.Element[] | null>(null);
@@ -66,6 +66,7 @@ export const BodyContent = () => {
         </div>
       </div>
     ));
+    // setTimeout(() => setItems(items), 100000);
     setItems(items);
   };
 
@@ -78,9 +79,20 @@ export const BodyContent = () => {
         });
   };
 
+  // Get content - first check if there is some filters, if no - render all items. If item loaded and has no data - display NoContent, if no - there is loading stage.
+  const getContent = () => {
+    return filteredItems || (items !== null && items[0]) ? (
+      items
+    ) : items !== null ? (
+      <NoContent />
+    ) : (
+      <Loading />
+    );
+  };
+
   return (
     <div className="body_content">
-      {filteredItems || items || <Loading />}
+      {getContent()}
       <Upload />
     </div>
   );

@@ -82,6 +82,8 @@ input[type="text"]:focus {
   margin-top: 1%;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  height: 80%;
 }
 .content_item {
   cursor: pointer;
@@ -112,7 +114,7 @@ input[type="text"]:focus {
 }
 .content_item_top {
   height: 65%;
-  background-color: aquamarine;
+  background-color: #fff;
 }
 .content_item_bot {
   padding: 5%;

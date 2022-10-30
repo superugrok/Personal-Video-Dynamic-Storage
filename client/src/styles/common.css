@@ -38,7 +38,20 @@
 .loading {
   background-image: url("../assets/load.svg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: contain;
+  background-position: center;
+  margin: 0 auto;
+  margin-top: 12%;
+  width: 50%;
+  height: 50%;
+}
+
+/* No Content */
+.no-content {
+  background-image: url("../assets/noData.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   margin: 0 auto;
   margin-top: 12%;
   width: 50%;
