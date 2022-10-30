@@ -1,10 +1,10 @@
 # AlignedAssigment
-Aligned company test assigment
+Test Assignment for Alligned Company 
 
-For using this application, you must to run server and client at the same time.
+To use this application, run both server and client simultaneously.
 1. Client: cd client && npm run client
 2. Server: cd server && npm run server
-Client is at port 3000
 
-You must to have MongoDB installed
-url: "mongodb://localhost:27017/aligned",
+Client was started on port 3000 by default
+
+You must have MongoDB installed and the following url configured for the application: "mongodb://localhost:27017/aligned"
