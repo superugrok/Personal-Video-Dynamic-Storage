@@ -7,6 +7,7 @@ import { selectAll } from "@App/utils/dbActions";
 import { ItemMenu } from "./ItemMenu";
 import { Upload } from "./Upload";
 import ReactPlayer from "react-player";
+import LinkImage from "@Assets/link.svg";
 
 export const BodyContent = () => {
   const [items, setItems] = React.useState<JSX.Element[] | null>(null);
@@ -43,7 +44,9 @@ export const BodyContent = () => {
           <div className="content_item_preview">
             {itemData.type == "Youtube" ? (
               <ReactPlayer url={itemData.url} width={"100%"} height={"100%"} />
-            ) : null}
+            ) : (
+              <div className="content_item_link"></div>
+            )}
           </div>
         </div>
         <div

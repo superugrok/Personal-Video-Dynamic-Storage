@@ -15,6 +15,9 @@ export const Upload = () => {
   const nameRef = React.useRef(null);
   const urlRef = React.useRef(null);
 
+  // An teoretical user
+  const userName = "Erwin";
+
   // URL Regexp pattern
   const urlPattern = new RegExp(
     "^(https?:\\/\\/)?" + // validate protocol
@@ -31,7 +34,11 @@ export const Upload = () => {
     if (nameRef.current.value && urlPattern.test(urlRef.current.value)) {
       nameRef.current.style.borderColor = "#a9b5db";
       urlRef.current.style.borderColor = "#a9b5db";
-      addItem(nameRef.current.value, urlRef.current.value, "Erwin", "Youtube")
+      const urlValue: string = urlRef.current.value;
+      const itemType = urlValue.toLowerCase().match("youtube.com")
+        ? "Youtube"
+        : "Link";
+      addItem(nameRef.current.value, urlRef.current.value, userName, itemType)
         .then(() => selectAll())
         .then((data) => {
           setContext({ ...context, upload: false, newData: data });

@@ -103,6 +103,13 @@ input[type="text"]:focus {
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
 }
+.content_item_link {
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/link.svg");
+  background-size: contain;
+  background-position: center;
+}
 .content_item_top {
   height: 65%;
   background-color: aquamarine;
