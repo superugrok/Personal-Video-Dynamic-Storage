@@ -1,5 +1,5 @@
 # AlignedAssigment
-Test Assignment for Alligned Company 
+Test Assignment for Aligned Company 
 
 To use this application, run both server and client simultaneously.
 1. Client: cd client && npm run client
