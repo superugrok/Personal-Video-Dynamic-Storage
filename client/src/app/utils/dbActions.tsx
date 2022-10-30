@@ -16,9 +16,10 @@ export const addItem = async (
   owner: string,
   type: string
 ) => {
+  const action = "create";
   await axios({
     method: "post",
-    url: `${path}create`,
+    url: path + action,
     params: {
       name,
       url,
@@ -29,9 +30,10 @@ export const addItem = async (
 };
 
 export const removeItem = async (_id: string) => {
+  const action = "delete";
   await axios({
     method: "post",
-    url: `${path}delete`,
+    url: path + action,
     params: {
       _id,
     },
@@ -39,9 +41,10 @@ export const removeItem = async (_id: string) => {
 };
 
 export const editItem = async (_id: string, newName: string) => {
+  const action = "edit";
   await axios({
     method: "post",
-    url: `${path}edit`,
+    url: path + action,
     params: {
       _id,
       newName,
