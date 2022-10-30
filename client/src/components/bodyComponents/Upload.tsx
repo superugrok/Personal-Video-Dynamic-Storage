@@ -66,7 +66,7 @@ export const Upload = () => {
           const inputValue = urlRef.current.value;
           const typeVal = typeRef.current;
           const urlCorrect = () => {
-            const typeClass = inputValue.match("youtube.com")
+            const typeClass = inputValue.match("youtube.com/watch?")
               ? "modal_url_type_yt"
               : "modal_url_type_link";
             inputStyle.borderColor = "green";
