@@ -55,6 +55,25 @@
   justify-content: space-between;
 }
 
+.modal_url_wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.modal_url_type {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 6%;
+  margin-left: 3%;
+}
+.modal_url_type_yt {
+  background-image: url("../assets/yt.svg");
+}
+.modal_url_type_link {
+  background-image: url("../assets/link_type.svg");
+}
+
 /* Adaptation for 1920px < width */
 @media screen and (max-width: 1600px) {
   .modal-content {

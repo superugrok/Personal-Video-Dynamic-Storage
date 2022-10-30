@@ -14,6 +14,7 @@ export const Upload = () => {
   const modalRef = React.useRef(null);
   const nameRef = React.useRef(null);
   const urlRef = React.useRef(null);
+  const typeRef = React.useRef(null);
 
   // An teoretical user
   const userName = "Erwin";
@@ -63,9 +64,20 @@ export const Upload = () => {
         {
           const inputStyle = urlRef.current.style;
           const inputValue = urlRef.current.value;
-          !urlPattern.test(inputValue)
-            ? (inputStyle.borderColor = "red")
-            : (inputStyle.borderColor = "green");
+          const typeVal = typeRef.current;
+          const urlCorrect = () => {
+            const typeClass = inputValue.match("youtube.com")
+              ? "modal_url_type_yt"
+              : "modal_url_type_link";
+            inputStyle.borderColor = "green";
+            typeVal.className = `modal_url_type ${typeClass}`;
+          };
+          const urlIncorrect = () => {
+            const typeVal = typeRef.current;
+            inputStyle.borderColor = "red";
+            typeVal.className = `modal_url_type`;
+          };
+          !urlPattern.test(inputValue) ? urlIncorrect() : urlCorrect();
         }
         break;
       case "name":
@@ -96,14 +108,17 @@ export const Upload = () => {
     <Modal {...modalProps}>
       <div>
         <p className="modal_p">URL</p>
-        <Input
-          onChange={() => validateInput("url")}
-          onKeyDown={(event) => handleKeyDown(event)}
-          type="text"
-          placeholder="e.g. docs.google.com/presentation"
-          inputRef={urlRef}
-          maxLength={200}
-        />
+        <div className="modal_url_wrapper">
+          <Input
+            onChange={() => validateInput("url")}
+            onKeyDown={(event) => handleKeyDown(event)}
+            type="text"
+            placeholder="e.g. docs.google.com/presentation"
+            inputRef={urlRef}
+            maxLength={200}
+          />
+          <div className="modal_url_type" ref={typeRef}></div>
+        </div>
         <p className="modal_p">Name</p>
         <Input
           onChange={() => validateInput("name")}
