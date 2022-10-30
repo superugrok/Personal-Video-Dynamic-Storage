@@ -35,7 +35,7 @@ export const Upload = () => {
     const nameValue = nameRef.current.value;
     if (
       nameValue.length > 2 &&
-      nameValue.length < 12 &&
+      nameValue.length < 20 &&
       urlPattern.test(urlValue)
     ) {
       const itemType = urlValue.toLowerCase().match("youtube.com")
@@ -72,7 +72,7 @@ export const Upload = () => {
         {
           const inputStyle = nameRef.current.style;
           const inputValue = nameRef.current.value;
-          inputValue.length < 2 || inputValue.length > 11
+          inputValue.length < 2 || inputValue.length > 20
             ? (inputStyle.borderColor = "red")
             : (inputStyle.borderColor = "green");
         }
@@ -111,7 +111,7 @@ export const Upload = () => {
           type="text"
           placeholder="e.g. AMCE demo"
           inputRef={nameRef}
-          maxLength={11}
+          maxLength={20}
         />
         <div className="modal_buttons_area">
           <Button

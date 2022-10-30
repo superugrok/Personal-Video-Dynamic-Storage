@@ -14,7 +14,7 @@ export const BodyContent = () => {
   const [filteredItems, setFilteredItems] = React.useState<
     JSX.Element[] | null
   >(null);
-  const [context, setContext] = React.useContext(Context);
+  const [context] = React.useContext(Context);
 
   // Get items at first render / data refresh
   React.useEffect(() => {
@@ -51,10 +51,19 @@ export const BodyContent = () => {
         </div>
         <div
           className="content_item_bot"
-          onClick={() => window.open(itemData.url)}
+          onClick={() => {
+            let url = itemData.url;
+            let formedUrl =
+              url.match("http") || url.match("www") ? url : `http://${url}`;
+            window.open(formedUrl).focus();
+          }}
         >
           <div className="body_head">
-            <h4 className="content_item_desc">{itemData.name}</h4>
+            <h4 className="content_item_desc" title={itemData.name}>
+              {itemData.name.length > 10
+                ? itemData.name.substring(0, 7) + "..."
+                : itemData.name}
+            </h4>
             <div className="content_item_avatar"></div>
           </div>
           <div className="body_head">
@@ -66,7 +75,6 @@ export const BodyContent = () => {
         </div>
       </div>
     ));
-    // setTimeout(() => setItems(items), 100000);
     setItems(items);
   };
 
@@ -81,7 +89,9 @@ export const BodyContent = () => {
 
   // Get content - first check if there is some filters, if no - render all items. If item loaded and has no data - display NoContent, if no - there is loading stage.
   const getContent = () => {
-    return filteredItems || (items !== null && items[0]) ? (
+    return filteredItems ? (
+      filteredItems
+    ) : items !== null && items[0] ? (
       items
     ) : items !== null ? (
       <NoContent />

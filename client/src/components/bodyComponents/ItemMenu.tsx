@@ -41,7 +41,7 @@ export const ItemMenu = ({ itemData }: IItemMenu) => {
 
   const renameItem = () => {
     const newName = window.prompt("Enter new name for this item");
-    newName && newName.length < 12 && saveItem(newName);
+    newName && newName.length < 20 && saveItem(newName);
   };
 
   const copyItem = () => {
