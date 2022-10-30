@@ -116,6 +116,7 @@ input[type="text"]:focus {
 .content_item_top {
   height: 65%;
   background-color: #fff;
+  cursor: default;
 }
 .content_item_bot {
   padding: 5%;
@@ -158,6 +159,7 @@ input[type="text"]:focus {
   width: 40%;
   height: 23%;
   transition: 0.7s ease;
+  cursor: pointer;
 }
 .content_item:hover .content_top_menu {
   opacity: 1;
