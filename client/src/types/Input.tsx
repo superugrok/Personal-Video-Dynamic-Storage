@@ -8,4 +8,5 @@ export interface IInput {
   onChange?: (event?: React.ChangeEvent<HTMLInputElement>) => void;
   inputRef?: React.MutableRefObject<any>;
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  autofocus?: boolean;
 }

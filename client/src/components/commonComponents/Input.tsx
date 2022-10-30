@@ -9,9 +9,11 @@ export const Input = ({
   className,
   inputRef,
   onKeyDown,
+  autofocus,
 }: IInput) => {
   return (
     <input
+      autoFocus={autofocus}
       onKeyDown={(event) => onKeyDown && onKeyDown(event)}
       ref={inputRef}
       type={type || "text"}

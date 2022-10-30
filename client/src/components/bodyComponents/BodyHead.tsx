@@ -11,6 +11,7 @@ export const BodyHead = () => {
     <div className="body_head">
       <h4 className="body_hover">Library</h4>
       <Input
+        autofocus={true}
         onChange={(event) =>
           setContext({ ...context, search: event.target.value })
         }

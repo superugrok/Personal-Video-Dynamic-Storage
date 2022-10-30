@@ -52,14 +52,17 @@ export const ItemMenu = ({ itemData }: IItemMenu) => {
   return (
     <div className="content_top_menu">
       <div
+        title="Delete item"
         onClick={() => deleteItem()}
         className="content_top_menu_item content_top_menu_delete"
       ></div>
       <div
+        title="Edit item's name"
         onClick={() => renameItem()}
         className="content_top_menu_item content_top_menu_edit"
       ></div>
       <div
+        title="Copy item's link"
         onClick={() => copyItem()}
         className="content_top_menu_item content_top_menu_copy"
       ></div>
