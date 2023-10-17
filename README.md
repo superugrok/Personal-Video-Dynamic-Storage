@@ -1,5 +1,6 @@
-# AlignedAssigment
-Test Assignment for Aligned Company 
+# Personal Video Dynamic Storage
+An fullstack SPA, that contains a personal storage with videos (and them previews) you saved by link.
+Stack: React + TS, Node.js, MongoDB.
 
 To use this application, run both server and client simultaneously.
 1. Client: cd client && npm run client
